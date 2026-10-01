@@ -2,6 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { handleWhatsAppClick, handlePhoneClick } from '@/lib/analytics';
+
+const WA_HREF = 'https://wa.me/966552219925';
+const TEL_HREF = 'tel:0552219925';
 
 const navLinks = [
   { label: 'الرئيسية', href: '#home' },
@@ -108,16 +112,17 @@ export default function Navbar() {
               </li>
             ))}
             <li>
-              <a
-                href="tel:0552219925"
+              <button
+                id="nav-call-btn"
                 className="btn-primary"
-                style={{ padding: '0.55rem 1.25rem', fontSize: '0.9rem' }}
+                onClick={() => handlePhoneClick(TEL_HREF)}
+                style={{ padding: '0.55rem 1.25rem', fontSize: '0.9rem', cursor: 'pointer', border: 'none' }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
                 اتصل الآن
-              </a>
+              </button>
             </li>
           </ul>
 
@@ -213,12 +218,12 @@ export default function Navbar() {
           </a>
         ))}
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <a href="tel:0552219925" className="btn-primary" onClick={handleLinkClick}>
+          <button id="mobile-call-btn" className="btn-primary" onClick={() => { handlePhoneClick(TEL_HREF); handleLinkClick(); }} style={{ border: 'none', cursor: 'pointer' }}>
             اتصل الآن
-          </a>
-          <a href="https://wa.me/966552219925" className="btn-whatsapp" target="_blank" rel="noopener noreferrer" onClick={handleLinkClick}>
+          </button>
+          <button id="mobile-whatsapp-btn" className="btn-whatsapp" onClick={() => { handleWhatsAppClick(WA_HREF); handleLinkClick(); }} style={{ border: 'none', cursor: 'pointer' }}>
             واتساب
-          </a>
+          </button>
         </div>
       </div>
 

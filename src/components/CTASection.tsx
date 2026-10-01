@@ -1,6 +1,10 @@
 'use client';
 
 import Image from 'next/image';
+import { handleWhatsAppClick, handlePhoneClick, handleQuoteClick } from '@/lib/analytics';
+
+const WA_HREF = 'https://wa.me/966552219925';
+const TEL_HREF = 'tel:0552219925';
 
 export default function CTASection() {
   return (
@@ -65,9 +69,9 @@ export default function CTASection() {
             marginBottom: '2.5rem',
           }}>
             {/* Call */}
-            <a
-              href="tel:0552219925"
+            <button
               id="cta-call-btn"
+              onClick={() => handlePhoneClick(TEL_HREF)}
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -80,6 +84,7 @@ export default function CTASection() {
                 textDecoration: 'none',
                 transition: 'all 0.3s ease',
                 color: 'var(--color-white)',
+                cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget;
@@ -111,14 +116,12 @@ export default function CTASection() {
                 <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)', marginBottom: '0.25rem' }}>اتصال مباشر</div>
                 <div style={{ fontWeight: 800, fontSize: '1.1rem', color: 'var(--color-gold)' }}>0552219925</div>
               </div>
-            </a>
+            </button>
 
             {/* WhatsApp */}
-            <a
-              href="https://wa.me/966552219925"
+            <button
               id="cta-whatsapp-btn"
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={() => { handleQuoteClick(); handleWhatsAppClick(WA_HREF); }}
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -131,6 +134,7 @@ export default function CTASection() {
                 textDecoration: 'none',
                 transition: 'all 0.3s ease',
                 color: 'var(--color-white)',
+                cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget;
@@ -160,7 +164,7 @@ export default function CTASection() {
                 <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)', marginBottom: '0.25rem' }}>واتساب</div>
                 <div style={{ fontWeight: 800, fontSize: '1.1rem', color: '#25D366' }}>0552219925</div>
               </div>
-            </a>
+            </button>
 
             {/* Location */}
             <div style={{
