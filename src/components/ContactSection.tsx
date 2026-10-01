@@ -1,5 +1,10 @@
 'use client';
 
+import { handleWhatsAppClick, handlePhoneClick, handleQuoteClick } from '@/lib/analytics';
+
+const WA_HREF = 'https://wa.me/966552219925';
+const TEL_HREF = 'tel:0552219925';
+
 export default function ContactSection() {
   return (
     <section
@@ -39,9 +44,9 @@ export default function ContactSection() {
           margin: '0 auto',
         }}>
           {/* Call Card */}
-          <a
-            href="tel:0552219925"
+          <button
             id="contact-call-card"
+            onClick={() => handlePhoneClick(TEL_HREF)}
             style={{
               textDecoration: 'none',
               display: 'block',
@@ -53,6 +58,8 @@ export default function ContactSection() {
               transition: 'all 0.3s ease',
               position: 'relative',
               overflow: 'hidden',
+              cursor: 'pointer',
+              width: '100%',
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget;
@@ -112,14 +119,12 @@ export default function ContactSection() {
             }}>
               0552219925
             </div>
-          </a>
+          </button>
 
           {/* WhatsApp Card */}
-          <a
-            href="https://wa.me/966552219925"
+          <button
             id="contact-whatsapp-card"
-            target="_blank"
-            rel="noopener noreferrer"
+            onClick={() => { handleQuoteClick(); handleWhatsAppClick(WA_HREF); }}
             style={{
               textDecoration: 'none',
               display: 'block',
@@ -131,6 +136,8 @@ export default function ContactSection() {
               transition: 'all 0.3s ease',
               position: 'relative',
               overflow: 'hidden',
+              cursor: 'pointer',
+              width: '100%',
             }}
             onMouseEnter={(e) => {
               const el = e.currentTarget;
@@ -189,7 +196,7 @@ export default function ContactSection() {
             }}>
               0552219925
             </div>
-          </a>
+          </button>
         </div>
 
         {/* Location info */}
