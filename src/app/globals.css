@@ -230,9 +230,6 @@ section {
 
 /* Floating WhatsApp button */
 .float-whatsapp {
-  position: fixed;
-  bottom: 2rem;
-  left: 1.5rem;
   width: 60px;
   height: 60px;
   background: #25D366;
@@ -240,7 +237,6 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
   animation: pulse-gold 2s infinite;
   text-decoration: none;
@@ -252,6 +248,31 @@ section {
 }
 
 .float-whatsapp svg {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
+
+/* Floating Instagram button */
+.float-instagram {
+  width: 60px;
+  height: 60px;
+  background: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  animation: pulse-gold 2s infinite;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.float-instagram:hover {
+  transform: scale(1.1);
+}
+
+.float-instagram svg {
   width: 32px;
   height: 32px;
   fill: white;
