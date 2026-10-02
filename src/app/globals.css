@@ -257,7 +257,7 @@ section {
 .float-instagram {
   width: 60px;
   height: 60px;
-  background: #000000;
+  background: linear-gradient(135deg, #feda75 0%, #d62976 40%, #962fbf 70%, #4f5bd5 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
