@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://muqawalat-amma.vercel.app';
+const BASE_URL = 'https://fekr-alkhaleej.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const servicePages = [

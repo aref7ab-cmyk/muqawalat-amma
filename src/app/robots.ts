@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://muqawalat-amma.vercel.app/sitemap.xml',
+    sitemap: 'https://fekr-alkhaleej.com/sitemap.xml',
   };
 }

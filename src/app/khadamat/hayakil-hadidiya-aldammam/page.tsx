@@ -1,7 +1,7 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import ServicePageLayout from '@/components/ServicePageLayout';
 
-const BASE_URL = 'https://muqawalat-amma.vercel.app';
+const BASE_URL = 'https://fekr-alkhaleej.com';
 const SLUG = 'hayakil-hadidiya-aldammam';
 
 export const metadata: Metadata = {

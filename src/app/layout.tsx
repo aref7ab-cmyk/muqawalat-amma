@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Analytics from "@/components/Analytics";
 
-const BASE_URL = "https://muqawalat-amma.vercel.app";
+const BASE_URL = "https://fekr-alkhaleej.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
