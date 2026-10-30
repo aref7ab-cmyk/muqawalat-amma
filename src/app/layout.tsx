@@ -47,6 +47,7 @@ const jsonLd = {
     { "@type": "City", "name": "الدمام" },
     { "@type": "City", "name": "الخبر" },
     { "@type": "City", "name": "الظهران" },
+    { "@type": "City", "name": "الجبيل" },
   ],
   "description": "متخصصون في الهياكل الحديدية والمستودعات، المظلات، السواتر، البرجولات، والترميم والصيانة الشاملة في الدمام",
   "hasOfferCatalog": {
@@ -74,7 +75,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="canonical" href={BASE_URL} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
