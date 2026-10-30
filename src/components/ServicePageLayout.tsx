@@ -44,7 +44,7 @@ export default function ServicePageLayout({ data }: Props) {
               alt={data.title}
               fill
               priority
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               style={{ objectFit: 'cover', objectPosition: 'center' }}
             />
             <div style={{
