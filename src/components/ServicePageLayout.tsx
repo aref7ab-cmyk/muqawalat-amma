@@ -38,11 +38,11 @@ export default function ServicePageLayout({ data }: Props) {
           }}
         >
           <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-            <img
-              src={data.image}
-              alt={data.title}
-              className="w-full h-[500px] object-cover rounded-xl"
-            />
+            {data.title === 'مظلات الدمام' ? (
+              <img src="/images/5.jpg" alt="مظلات الدمام" className="w-full h-[500px] object-cover rounded-xl shadow-lg" />
+            ) : (
+              <img src={data.image} alt={data.title} className="w-full h-[500px] object-cover rounded-xl shadow-lg" />
+            )}
             <div style={{
               position: 'absolute',
               inset: 0,
