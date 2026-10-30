@@ -122,6 +122,15 @@ export default function ServicePageLayout({ data }: Props) {
         {/* Description + Features */}
         <section style={{ padding: '5rem 0', background: '#ffffff' }}>
           <div className="container" style={{ maxWidth: '900px' }}>
+            {data.title === 'مظلات الدمام' && (
+              <div className="mb-8">
+                <img
+                  src="/images/5.jpg"
+                  alt="مظلات الدمام"
+                  className="w-full h-[500px] object-cover rounded-xl"
+                />
+              </div>
+            )}
             <p style={{ color: '#3a3a3a', fontSize: '1.08rem', lineHeight: 2, marginBottom: '2.5rem' }}>
               {data.description}
             </p>
