@@ -1,7 +1,6 @@
 ﻿'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { handleWhatsAppClick, handlePhoneClick, handleQuoteClick, trackEvent } from '@/lib/analytics';
@@ -39,13 +38,10 @@ export default function ServicePageLayout({ data }: Props) {
           }}
         >
           <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-            <Image
+            <img
               src={data.image}
               alt={data.title}
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              className="w-full h-[500px] object-cover rounded-xl"
             />
             <div style={{
               position: 'absolute',
