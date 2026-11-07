@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { handleWhatsAppClick, handlePhoneClick } from '@/lib/analytics';
 
 const WA_HREF = 'https://wa.me/966552219925';
@@ -177,20 +178,31 @@ export default function Footer() {
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
               {[
-                'الهياكل الحديدية والمستودعات',
-                'المظلات',
-                'السواتر',
-                'الترميم والصيانة الشاملة',
+                { label: 'مظلات الدمام', href: '/khadamat/mazallat-aldammam' },
+                { label: 'سواتر الدمام', href: '/khadamat/sawatir-aldammam' },
+                { label: 'هناجر ومستودعات', href: '/khadamat/hanajir-almustodaat-aldammam' },
+                { label: 'هياكل حديدية', href: '/khadamat/hayakil-hadidiya-aldammam' },
+                { label: 'برجولات الدمام', href: '/khadamat/barjolat-aldammam' },
+                { label: 'ترميم وصيانة', href: '/khadamat/tarimeem-wasianah-aldammam' },
               ].map((service) => (
-                <li key={service} style={{
-                  color: '#5a6e5a',
-                  fontSize: '0.92rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.4rem',
-                }}>
-                  <span style={{ color: 'var(--color-green-light)', fontSize: '0.7rem' }}>✓</span>
-                  {service}
+                <li key={service.href}>
+                  <Link
+                    href={service.href}
+                    style={{
+                      color: '#5a6e5a',
+                      textDecoration: 'none',
+                      fontSize: '0.92rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      transition: 'color 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = 'var(--color-gold)')}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#5a6e5a')}
+                  >
+                    <span style={{ color: 'var(--color-gold)', fontSize: '0.7rem' }}>✓</span>
+                    {service.label}
+                  </Link>
                 </li>
               ))}
             </ul>

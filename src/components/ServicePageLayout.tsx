@@ -38,15 +38,21 @@ export default function ServicePageLayout({ data }: Props) {
           }}
         >
           <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-            {data.title === 'مظلات الدمام' ? (
-              <img src="/images/5.jpg" alt="مظلات الدمام" className="w-full h-[500px] object-cover rounded-xl shadow-lg" />
-            ) : (
-              <img src={data.image} alt={data.title} className="w-full h-[500px] object-cover rounded-xl shadow-lg" />
-            )}
+            <img
+              src={data.image}
+              alt={data.title}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                position: 'absolute',
+                inset: 0,
+              }}
+            />
             <div style={{
               position: 'absolute',
               inset: 0,
-              background: 'linear-gradient(135deg, rgba(10,15,10,0.93) 0%, rgba(27,67,50,0.8) 100%)',
+              background: 'linear-gradient(135deg, rgba(10,15,10,0.85) 0%, rgba(27,67,50,0.65) 50%, rgba(10,15,10,0.8) 100%)',
             }} />
           </div>
 
@@ -122,12 +128,19 @@ export default function ServicePageLayout({ data }: Props) {
         {/* Description + Features */}
         <section style={{ padding: '5rem 0', background: '#ffffff' }}>
           <div className="container" style={{ maxWidth: '900px' }}>
-            {data.title === 'مظلات الدمام' && (
-              <div className="mb-8">
+            {data.image && (
+              <div className="mb-8" style={{ marginBottom: '2rem' }}>
                 <img
-                  src="/images/5.jpg"
-                  alt="مظلات الدمام"
-                  className="w-full h-[500px] object-cover rounded-xl"
+                  src={data.image}
+                  alt={data.title}
+                  className="w-full h-[500px] object-cover rounded-xl shadow-lg"
+                  style={{
+                    width: '100%',
+                    height: '450px',
+                    objectFit: 'cover',
+                    borderRadius: '16px',
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                  }}
                 />
               </div>
             )}
