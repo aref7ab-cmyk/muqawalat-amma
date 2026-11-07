@@ -1,16 +1,49 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { handleWhatsAppClick, handlePhoneClick } from '@/lib/analytics';
 
 const WA_HREF = 'https://wa.me/966552219925';
 const TEL_HREF = 'tel:0552219925';
 
 const services = [
-  { title: "الهياكل الحديدية والمستودعات", desc: "تصميم وتنفيذ هناجر ومستودعات وهياكل معدنية بمواصفات هندسية.", img: "/images/1.jpg" },
-  { title: "المظلات", desc: "مظلات سيارات ومظلات حدائق ومظلات مدارس بجودة عالية.", img: "/images/5.jpg" },
-  { title: "المجالس والجلسات", desc: "مجالس خارجية وبيوت شعر وبرجولات للاستراحات والفلل.", img: "/images/3.jpg" },
-  { title: "السواتر والترميم", desc: "سواتر حديد وقماش وخشب للخصوصية مع أعمال الترميم والصيانة.", img: "/images/10.jpg" }
+  {
+    title: "مظلات الدمام",
+    desc: "تركيب مظلات سيارات وحدائق ومسابح ومداخل بأعلى جودة وخامات مقاومة للحرارة والرياح.",
+    img: "/images/5.jpg",
+    slug: "mazallat-aldammam",
+  },
+  {
+    title: "سواتر الدمام",
+    desc: "تركيب سواتر حديد وقماش وخشب لتوفير الخصوصية الكاملة والأمان بتصاميم عصرية راقية.",
+    img: "/images/10.jpg",
+    slug: "sawatir-aldammam",
+  },
+  {
+    title: "هناجر ومستودعات الدمام",
+    desc: "تصميم وتنفيذ هناجر ومستودعات ومخازن بمواصفات هندسية عالية وعوازل حرارية متطورة.",
+    img: "/images/1.jpg",
+    slug: "hanajir-almustodaat-aldammam",
+  },
+  {
+    title: "هياكل حديدية الدمام",
+    desc: "تصنيع وتركيب هياكل حديدية، أسقف معدنية، سلالم وبوابات بمواصفات دقيقة ومقاومة للصدأ.",
+    img: "/images/7.jpg",
+    slug: "hayakil-hadidiya-aldammam",
+  },
+  {
+    title: "برجولات الدمام",
+    desc: "تصميم وتركيب برجولات خشبية ومعدنية للحدائق والفلل والاستراحات بإطلالة راقية وعصرية.",
+    img: "/images/3.jpg",
+    slug: "barjolat-aldammam",
+  },
+  {
+    title: "ترميم وصيانة الدمام",
+    desc: "خدمات ترميم وصيانة شاملة للمباني والمنشآت وتشطيبات داخلية وخارجية بأعلى كفاءة واحترافية.",
+    img: "/images/4.jpg",
+    slug: "tarimeem-wasianah-aldammam",
+  },
 ];
 
 export default function ServicesSection() {
@@ -70,34 +103,45 @@ export default function ServicesSection() {
               }}
             >
               {/* Image */}
-              <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
-                <Image
-                  src={service.img}
-                  alt={service.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                  onMouseEnter={(e) => (e.target as HTMLElement).style.transform = 'scale(1.05)'}
-                  onMouseLeave={(e) => (e.target as HTMLElement).style.transform = 'scale(1)'}
-                />
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: `linear-gradient(to top, rgba(10,15,10,0.9) 0%, rgba(10,15,10,0.3) 60%, transparent 100%)`,
-                }} />
-
-              </div>
+              <Link href={`/khadamat/${service.slug}`} style={{ display: 'block' }}>
+                <div style={{ position: 'relative', height: '220px', overflow: 'hidden' }}>
+                  <Image
+                    src={service.img}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                    onMouseEnter={(e) => (e.target as HTMLElement).style.transform = 'scale(1.05)'}
+                    onMouseLeave={(e) => (e.target as HTMLElement).style.transform = 'scale(1)'}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: `linear-gradient(to top, rgba(10,15,10,0.9) 0%, rgba(10,15,10,0.3) 60%, transparent 100%)`,
+                  }} />
+                </div>
+              </Link>
 
               {/* Content */}
               <div style={{ padding: '1.75rem' }}>
                 <h3 style={{
                   fontSize: '1.2rem',
                   fontWeight: 800,
-                  color: '#0a2e1f',
                   marginBottom: '0.75rem',
                   lineHeight: 1.4,
                 }}>
-                  {service.title}
+                  <Link
+                    href={`/khadamat/${service.slug}`}
+                    style={{
+                      color: '#0a2e1f',
+                      textDecoration: 'none',
+                      transition: 'color 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-gold)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#0a2e1f')}
+                  >
+                    {service.title}
+                  </Link>
                 </h3>
                 <p style={{
                   color: '#52525b',
@@ -107,8 +151,8 @@ export default function ServicesSection() {
                 }}>
                   {service.desc}
                 </p>
-                <a
-                  href="#contact"
+                <Link
+                  href={`/khadamat/${service.slug}`}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -128,11 +172,11 @@ export default function ServicesSection() {
                     el.style.gap = '0.4rem';
                   }}
                 >
-                  استفسر عن الخدمة
+                  تفاصيل الخدمة
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                   </svg>
-                </a>
+                </Link>
               </div>
 
               {/* Bottom gold accent line */}
