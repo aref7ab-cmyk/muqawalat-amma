@@ -7,12 +7,24 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   async redirects() {
-    return [{
-      source: '/:path*',
-      has: [{ type: 'host', value: 'www.fekr-alkhaleej.com' }],
-      destination: 'https://fekr-alkhaleej.com/:path*',
-      permanent: true,
-    }];
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.fekr-alkhaleej.com' }],
+        destination: 'https://fekr-alkhaleej.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/contact-us',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/tawasol',
+        destination: '/contact',
+        permanent: true,
+      },
+    ];
   },
 };
 
