@@ -1,7 +1,8 @@
-﻿'use client';
+'use client';
 
 import Script from 'next/script';
-import { GA_ID, GADS_ID } from '@/lib/analytics';
+
+const GA_ID = 'G-5VRSSL1TKP';
 
 /**
  * Injects GA4 and Google Ads gtag scripts.
@@ -9,29 +10,13 @@ import { GA_ID, GADS_ID } from '@/lib/analytics';
  * Place inside <body> in layout.tsx.
  */
 export default function Analytics() {
-  if (!GA_ID && !GADS_ID) return null;
-
-  const trackingId = GA_ID || GADS_ID;
-  const initScript = [
-    'window.dataLayer = window.dataLayer || [];',
-    'function gtag(){dataLayer.push(arguments);}',
-    "gtag('js', new Date());",
-    GA_ID ? `gtag('config', '${GA_ID}', { page_path: window.location.pathname });` : '',
-    GADS_ID ? `gtag('config', '${GADS_ID}');` : '',
-  ].filter(Boolean).join('\n');
-
   return (
     <>
       <Script
-        id="gtag-js"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}
       />
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: initScript }}
-      />
+      <Script id="gtag-init" strategy="afterInteractive">{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${GA_ID}', { page_path: window.location.pathname });`}</Script>
     </>
   );
 }
