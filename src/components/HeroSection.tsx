@@ -121,8 +121,8 @@ export default function HeroSection() {
               transition: 'all 0.7s ease 0.2s',
             }}
           >
-            <span style={{ color: 'var(--color-white)', display: 'block' }}>فخر الخليج</span>
-            <span className="gold-shimmer" style={{ display: 'block' }}>للمقاولات العامة</span>
+            <span style={{ color: 'var(--color-white)', display: 'block' }}>فخر الخليج | مظلات وسواتر</span>
+            <span className="gold-shimmer" style={{ display: 'block' }}>وهناجر في الدمام</span>
           </h1>
 
           {/* Tagline */}
